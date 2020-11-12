@@ -10,7 +10,7 @@
 #fi
 
 # set dbus address
-#export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 # configure bluetooth
 #bluetoothctl power off
@@ -22,8 +22,8 @@
 #bluetoothctl power on
 
 # start dbus
-#dbus-uuidgen --ensure
-#dbus-daemon --system
+dbus-uuidgen --ensure
+dbus-daemon --system
 
 # allow node access to bt le
 setcap cap_net_raw+eip $(eval readlink -f $(which node))
