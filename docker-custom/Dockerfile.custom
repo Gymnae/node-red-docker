@@ -89,7 +89,7 @@ ENV UDEV=1
 ADD start.sh /
 RUN chmod +x /start.sh && chmod 777 /start.sh
 
-#USER node-red
+USER root
 
 # Env variables
 ENV NODE_RED_VERSION=$NODE_RED_VERSION \
