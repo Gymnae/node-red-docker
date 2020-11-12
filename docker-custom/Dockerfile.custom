@@ -17,6 +17,11 @@ RUN set -ex && \
         curl \
         nano \
         git \
+        # bluetooth stuff
+        bluez \
+        bluez-dev \
+        eudev-dev \
+        # stop bluetooth stuff
         openssl \
         openssh-client && \
     mkdir -p /usr/src/node-red /data && \
@@ -72,9 +77,6 @@ RUN chown -R node-red:root /usr/src/node-red && \
     /tmp/install_devtools.sh && \
     rm -r /tmp/*
 
-# Install bluetooth related stuff
-RUN bluez bluez-dev eudev-dev
-
 # Activate dbus
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 ENV UDEV=1
@@ -95,4 +97,5 @@ EXPOSE 1880
 # Add a healthcheck (default every 30 secs)
 # HEALTHCHECK CMD curl http://localhost:1880/ || exit 1
 
-ENTRYPOINT ["npm", "start", "--cache", "/data/.npm", "--", "--userDir", "/data"]
+#ENTRYPOINT ["npm", "start", "--cache", "/data/.npm", "--", "--userDir", "/data"]
+ENTRYPOINT ["start.sh]
