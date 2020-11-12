@@ -22,6 +22,9 @@ RUN set -ex && \
         bluez \
         bluez-dev \
         eudev-dev \
+        bluez-libs \
+        bluez-firmware \
+        bluez-deprecated \
         # stop bluetooth stuff
         openssl \
         openssh-client && \
