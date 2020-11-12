@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # install npm modules forbluetooth
 npm install @abandonware/noble 
 npm install node-red-contrib-noble-bluetooth
