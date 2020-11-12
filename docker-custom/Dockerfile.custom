@@ -81,6 +81,9 @@ RUN chown -R node-red:root /usr/src/node-red && \
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 ENV UDEV=1
 
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 USER node-red
 
 # Env variables
@@ -98,6 +101,4 @@ EXPOSE 1880
 # HEALTHCHECK CMD curl http://localhost:1880/ || exit 1
 
 #ENTRYPOINT ["npm", "start", "--cache", "/data/.npm", "--", "--userDir", "/data"]
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
 ENTRYPOINT ["/start.sh"]
