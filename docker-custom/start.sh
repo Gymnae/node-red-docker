@@ -10,6 +10,10 @@
 #fi
 
 # set dbus address
+dbus-uuidgen > /var/lib/dbus/machine-id
+mkdir -p /var/run/dbus
+dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address
+
 export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 # configure bluetooth
@@ -20,10 +24,6 @@ export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 #bluetoothctl discoverable on
 #bluetoothctl discoverable-timeout 0
 #bluetoothctl power on
-
-# start dbus
-dbus-uuidgen --ensure
-dbus-daemon --system
 
 # allow node access to bt le
 setcap cap_net_raw+eip $(eval readlink -f $(which node))
