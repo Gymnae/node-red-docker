@@ -29,4 +29,4 @@ dbus-daemon --system
 setcap cap_net_raw+eip $(eval readlink -f $(which node))
 
 # finall start node
-npm start --cache /data/.npm -- --userDir /data
+su node-red -c "npm start --cache /data/.npm -- --userDir /data"
