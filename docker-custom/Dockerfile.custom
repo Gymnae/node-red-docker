@@ -81,8 +81,8 @@ RUN chown -R node-red:root /usr/src/node-red && \
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 ENV UDEV=1
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+ADD start.sh /
+RUN chmod +x /start.sh && chmod 777 /start.sh
 
 USER node-red
 
