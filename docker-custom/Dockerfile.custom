@@ -19,6 +19,7 @@ RUN set -ex && \
         git \
         dbus \
         # bluetooth stuff
+        openrc \
         bluez \
         bluez-dev \
         eudev-dev \
@@ -82,8 +83,8 @@ RUN chown -R node-red:root /usr/src/node-red && \
     rm -r /tmp/*
 
 # Activate dbus
-#ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
-#ENV UDEV=1
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+ENV UDEV=1
 
 ADD start.sh /
 RUN chmod +x /start.sh && chmod 777 /start.sh
