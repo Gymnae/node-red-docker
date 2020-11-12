@@ -99,4 +99,5 @@ EXPOSE 1880
 
 #ENTRYPOINT ["npm", "start", "--cache", "/data/.npm", "--", "--userDir", "/data"]
 COPY start.sh /start.sh
-ENTRYPOINT ["start.sh"]
+RUN chmod +x /start.sh
+ENTRYPOINT ["/start.sh"]
