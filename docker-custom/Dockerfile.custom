@@ -83,7 +83,7 @@ RUN chown -R node-red:root /usr/src/node-red && \
     rm -r /tmp/*
 
 # Activate dbus
-ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 ENV UDEV=1
 
 ADD start.sh /
