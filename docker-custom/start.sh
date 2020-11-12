@@ -14,7 +14,7 @@ dbus-uuidgen > /var/lib/dbus/machine-id
 mkdir -p /var/run/dbus
 dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address
 
-export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 
 # configure bluetooth
 #bluetoothctl power off
